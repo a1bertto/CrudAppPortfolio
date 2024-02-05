@@ -1,0 +1,26 @@
+<input [(ngModel)]="userId" placeholder="Enter User ID">
+<button (click)="submitSearch()">Submit</button>
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{ userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+          <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
