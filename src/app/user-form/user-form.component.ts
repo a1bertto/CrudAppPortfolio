@@ -19,6 +19,7 @@ export class UserFormComponent {
     this.user = new User();
   }
 
+
   onSubmit() {
     this.userService.createUserDetails(this.user).subscribe(result => this.gotoUserList());
   }

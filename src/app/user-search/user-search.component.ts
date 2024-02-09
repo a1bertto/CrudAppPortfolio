@@ -9,44 +9,26 @@ import { User } from '../Models/user';
 })
 export class UserSearchComponent implements OnInit {
   user:User;
-  userId: number;
+  userId: number ;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+
+  }
 
   ngOnInit(): void {
 
 
   }
 
-  submitSearch(): void {
-    if (this.userId) {
-      this.fetchUserById(this.userId);
-    } else {
-      // Handle the case where the user ID is not valid or empty
-      this.user = null;
-    }
-  }
+  onSubmit(){
+  this.userService.getUserById(this.userId).subscribe((response)=>{
+    this.user= response['data'];
 
-  private fetchUserById(userId: number): void {
-    if (userId) {
-      this.userService.getUserById(userId).subscribe(
-        (data) => {
-          this.user = data;
-          console.log("userid:"+data)
-        },
-        (error) => {
-          console.error('Error fetching user:', error);
-          // Handle the error as needed
-        }
-      );
-    } else {
-      // Handle the case where the user ID is not valid or empty
-      this.user = null;
-    }
-  }
+  })}
 
 
-  }
+ }
+
 
 
 

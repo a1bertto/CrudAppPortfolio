@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../Models/user';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import { ApiResponse } from '../Models/ApiResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class UserService {
 
   public createUserDetails(user: User) {
     return this.http.post<User>(this.usersUrl, user);
+  }
+  public deleteUserById(id: number):Observable<any>{
+    const url = `${this.usersUrl}/${id}`;
+     return this.http.delete<any>(url);
   }
 }

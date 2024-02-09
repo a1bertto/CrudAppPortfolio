@@ -9,6 +9,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './Services/user.service';
 import { UserSearchComponent } from './user-search/user-search.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

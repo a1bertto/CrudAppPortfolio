@@ -1,7 +1,7 @@
-<input [(ngModel)]="userId" placeholder="Enter User ID">
-<button (click)="submitSearch()">Submit</button>
+<input [(ngModel)]="userId"  placeholder="Enter User ID">
+<button (click)="onSubmit()">Submit</button>
 
-<div class="card my-5">
+<div class="card my-5" *ngIf="user"  >
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
@@ -13,12 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr >
-          <td>{{ userId }}</td>
+        <tr  >
+          <td>{{ user.id }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>
-          <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+
         </tr>
       </tbody>
     </table>
