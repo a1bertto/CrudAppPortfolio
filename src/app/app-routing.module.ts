@@ -8,7 +8,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
 const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
-  { path: 'users/finduser', component: UserSearchComponent }
+  { path: 'finduser', component: UserSearchComponent },
+
 ];
 
 @NgModule({

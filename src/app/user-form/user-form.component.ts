@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from '../Services/user.service'
 import { User } from '../Models/user';
 
@@ -13,9 +13,8 @@ export class UserFormComponent {
   user: User;
 
   constructor(
-    private route: ActivatedRoute,
       private router: Router,
-        private userService: UserService) {
+      private userService: UserService) {
     this.user = new User();
   }
 
