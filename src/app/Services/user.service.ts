@@ -4,6 +4,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { ApiResponse } from '../Models/ApiResponse';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,8 @@ export class UserService {
   private usersUrl: string;
 
   constructor(private http:HttpClient) {
-    this.usersUrl = 'http://localhost:8080/api/v1/users';
+    const API_BASE_URL = 'http://localhost:8080/api/v1';
+    this.usersUrl = `${API_BASE_URL}/users`;
   }
 
   public getAllUserDetails(): Observable<User[]> {
@@ -30,4 +32,10 @@ export class UserService {
     const url = `${this.usersUrl}/${id}`;
      return this.http.delete<any>(url);
   }
+
+  public updateUserDetails(id: number, user: User): Observable<User> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.http.put<User>(url, user);
+  }
+
 }

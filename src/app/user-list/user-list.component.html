@@ -1,4 +1,4 @@
-<div class="card my-5">
+<div class="card my-5" >
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
@@ -8,18 +8,61 @@
           <th scope="col">Email</th>
           <th scope="col">Password</th>
           <th>Delete Account</th>
+          <th>Update Account</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr   *ngFor="let user of users">
           <td>{{ user.id }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>
-          <td ><button type="button" class="btn btn-danger" (click)="onDelete(user)">delete</button></td>
+          <td ><button type="button" class="btn btn-danger" (click)="onDelete(user)">Delete</button></td>
+          <td ><button type="button" class="btn btn-primary" (click)="onShowUpdateForm(user)">Update</button></td>
 
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<div *ngIf="showUpdateForm" class="card my-5"  >
+  <div class="card-body" >
+    <form  #userForm="ngForm" >
+      <div class="form-group">
+        <label for="name">Username</label>
+        <input type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          [(ngModel)]="userToUpdate.username"
+          >
+      </div>
+      <div class="alert alert-danger">New name is required</div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text"
+          class="form-control"
+          id="email"
+          name="email"
+          [(ngModel)]="userToUpdate.email"
+           >
+        <div  class="alert alert-danger" >New email is required</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="userToUpdate.password"
+           >
+        <div  class="alert alert-danger">New password is required</div>
+      </div >
+
+      <button type="submit" [disabled]="!userForm.form.valid"
+        class="btn btn-info"  (click)="onConfirmUpdate()" >Confirm Details</button>
+    </form>
+  </div>
+</div>
+
