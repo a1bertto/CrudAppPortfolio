@@ -23,13 +23,20 @@ export class UserListComponent implements OnInit {
   onDelete(user: User) {
     if (user && user.id) {
       this.userService.deleteUserById(user.id).subscribe(
-        () => {
+        (response) => {
+          console.log(response)
+          this.userService.getAllUserDetails().subscribe((data)=> {this.users = data})
+            this.router.navigate(['/users']);
 
-          this.userService.getAllUserDetails().subscribe((data)=> {this.users = data});
+
+        },
+        (error) => {
+          console.error('Error:', error);
         }
       );
     }
   }
+
   onShowUpdateForm(user: User) {
     this.showUpdateForm = true;
     this.userToUpdate = { ...user }; // Create a copy of the user to avoid updating the original user directly

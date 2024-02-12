@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../Services/user.service'
 import { User } from '../Models/user';
 
+
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -18,12 +19,17 @@ export class UserFormComponent {
     this.user = new User();
   }
 
+  gotoUserList() {
+    this.router.navigate(['/']);
+  }
 
   onSubmit() {
-    this.userService.createUserDetails(this.user).subscribe(result => this.gotoUserList());
+    this.userService.createUserDetails(this.user).subscribe(
+      () => {
+
+          this.gotoUserList()
+      });
   }
 
-  gotoUserList() {
-    this.router.navigate(['/users']);
-  }
+
 }
