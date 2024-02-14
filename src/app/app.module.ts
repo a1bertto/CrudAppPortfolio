@@ -8,6 +8,10 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './Services/user.service';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { HeaderComponent } from './header/header.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
@@ -16,7 +20,11 @@ import { UserSearchComponent } from './user-search/user-search.component';
     AppComponent,
     UserListComponent,
     UserFormComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    HeaderComponent,
+    AdminDashboardComponent,
+    LogInComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

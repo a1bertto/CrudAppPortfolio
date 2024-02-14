@@ -1,0 +1,25 @@
+.btn-custom {
+  background-color:none; /* Change to your desired background color */
+  color: #ffffff; /* Change to your desired text color */
+
+}
+.btn-custom:hover {
+  background-color: #ff9900; /* Change to your desired hover background color */
+  color: #ffffff; /* Change to your desired hover text color */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+
+.navbar-nav .nav-item {
+  /* Adjust the margin as needed for additional spacing */
+
+}
+.navbar-brand {
+ margin-left:200px;
+  margin-right: 200px; /* Adjust the margin as needed for additional spacing */
+}
